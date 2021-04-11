@@ -1,24 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 using System.Text.Json.Serialization;
 
 namespace Countries.DataAccessLayer
 {
-    public class Countries
+    public class CountriesAPI
     {
         [JsonPropertyName("name")]
         public string Name { get; set; }
 
-        [JsonPropertyName("alpha-2")]
-        public string AlphaTwo { get; set; }
-
-        [JsonPropertyName("alpha-3")]
-        public string AlphaThree { get; set; }
-
         [JsonPropertyName("country-code")]
         public string CountryCode { get; set; }
-
-        [JsonPropertyName("iso_3166-2")]
-        public string IsoCode { get; set; }
 
         [JsonPropertyName("region")]
         public string Region { get; set; }
@@ -26,17 +19,25 @@ namespace Countries.DataAccessLayer
         [JsonPropertyName("sub-region")]
         public string SubRegion { get; set; }
 
-        [JsonPropertyName("intermediate-region")]
+        [JsonPropertyName("intermediateregion")]
         public string IntermediateRegion { get; set; }
 
-        [JsonPropertyName("region-code")]
+        [JsonPropertyName("regioncode")]
         public string RegionCode { get; set; }
 
-        [JsonPropertyName("sub-region-code")]
+        [JsonPropertyName("subregioncode")]
         public string SubRegionCode { get; set; }
 
-        [JsonPropertyName("intermediate-region-code")]
+        [JsonPropertyName("intermediateregioncode")]
         public string IntermediateRegionCode { get; set; }
 
+        [JsonPropertyName("iso_3166-2")]
+        public string IsoCode { get; set; }
+
+        [JsonPropertyName("alpha2")]
+        public string AlphaTwo { get; set; }
+
+        [JsonPropertyName("alpha3")]
+        public string AlphaThree { get; set; }
     }
 }
