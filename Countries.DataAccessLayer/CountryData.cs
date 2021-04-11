@@ -5,18 +5,18 @@ using System.Text.Json.Serialization;
 
 namespace Countries.DataAccessLayer
 {
-    public class CountriesAPI
+    public class CountryData
     {
         [JsonPropertyName("name")]
         public string Name { get; set; }
 
-        [JsonPropertyName("country-code")]
+        [JsonPropertyName("countrycode")]
         public string CountryCode { get; set; }
 
         [JsonPropertyName("region")]
         public string Region { get; set; }
 
-        [JsonPropertyName("sub-region")]
+        [JsonPropertyName("subregion")]
         public string SubRegion { get; set; }
 
         [JsonPropertyName("intermediateregion")]

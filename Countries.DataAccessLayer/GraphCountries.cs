@@ -115,7 +115,7 @@ namespace Countries.DataAccessLayer
         public string Name { get; set; }
     }
 
-    public class Country
+    public class CountryModal
     {
         [JsonPropertyName("name")]
         public string Name { get; set; }
@@ -181,6 +181,6 @@ namespace Countries.DataAccessLayer
     public class Data
     {
         [JsonPropertyName("Country")]
-        public List<Country> Country { get; set; }
+        public List<CountryModal> Country { get; set; }
     }
 }

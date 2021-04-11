@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace Countries.DataAccessLayer
 {
-    public class Countries
+    public class Country
     {
         [JsonPropertyName("name")]
         public string Name { get; set; }
