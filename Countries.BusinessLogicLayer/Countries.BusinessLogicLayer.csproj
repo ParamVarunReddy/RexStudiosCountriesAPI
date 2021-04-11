@@ -4,4 +4,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Countries.DataAccessLayer\Countries.DataAccessLayer.csproj" />
+  </ItemGroup>
+
 </Project>
