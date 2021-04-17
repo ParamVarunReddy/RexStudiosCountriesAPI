@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace Countries.DataAccessLayer
@@ -29,14 +30,14 @@ namespace Countries.DataAccessLayer
         [JsonPropertyName("intermediate-region")]
         public string IntermediateRegion { get; set; }
 
+        [JsonPropertyName("intermediate-region-code")]
+        public string IntermediateRegionCode { get; set; }
+
         [JsonPropertyName("region-code")]
         public string RegionCode { get; set; }
 
         [JsonPropertyName("sub-region-code")]
         public string SubRegionCode { get; set; }
-
-        [JsonPropertyName("intermediate-region-code")]
-        public string IntermediateRegionCode { get; set; }
 
     }
 }

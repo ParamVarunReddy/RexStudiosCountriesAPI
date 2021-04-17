@@ -16,7 +16,7 @@ namespace CountriesApi
 {
     public static class RetreiveRequest
     {
-        [FunctionName("Function1")]
+        [FunctionName("RetreiveRequest")]
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "countries/list")] HttpRequest req,
             ILogger log, ExecutionContext executionContext)
@@ -26,10 +26,6 @@ namespace CountriesApi
             string filter;
             string filterValue;
             string countryCode = req.Query["countryCode"];
-            string region = req.Query["region"];
-            string regionCode = req.Query["regionCode"];
-            string subRegion = req.Query["subRegion"];
-            string subRegionCode = req.Query["subRegionCode"];
             string name = req.Query["name"];
 
             if (!String.IsNullOrEmpty(countryCode))
@@ -37,30 +33,10 @@ namespace CountriesApi
                 filter = $"countrycode";
                 filterValue = $"{countryCode}";
             }
-            else if (!String.IsNullOrEmpty(region))
-            {
-                filter = $"region";
-                filterValue = $"{region}";
-            }
             else if (!String.IsNullOrEmpty(name))
             {
                 filter = $"name";
                 filterValue = $"{name}";
-            }
-            else if (!String.IsNullOrEmpty(regionCode))
-            {
-                filter = $"regioncode ";
-                filterValue = $"{regionCode}";
-            }
-            else if (!String.IsNullOrEmpty(subRegion))
-            {
-                filter = $"subregion";
-                filterValue = $"{subRegion}";
-            }
-            else if (!String.IsNullOrEmpty(subRegionCode))
-            {
-                filter = $"subregioncode";
-                filterValue = $"{subRegionCode}";
             }
             else
             {
@@ -71,31 +47,40 @@ namespace CountriesApi
 
             try
             {
-                var requestUrl = req.GetDisplayUrl();
+                log.LogInformation($"1:Get Country(s) by {filter}: {filterValue}");
                 var countriesList = await GetCountriesList(filter, filterValue, executionContext, log);
                 if (countriesList != null)
                 {
-                    log.LogInformation($"Successfully retrieved Service Request List with filter: {filter}.");
+                    log.LogInformation($"Successfully retrieved countries List with filter: {filter}.");
                 }
                 else
                 {
-                    return new NotFoundObjectResult($"Failed to retrieve Service Request List with filter: ({filter}).");
+                    return new NotFoundObjectResult($"Failed to retrieve countries List with filter: ({filter}).");
                 }
                 return new OkObjectResult(JsonSerializer.Serialize<List<CountryData>>(countriesList));
             }
             catch (Exception ex)
             {
-                return new BadRequestObjectResult($"Failed to retrieve Service Request List with filter ({filter}).");
+                log.LogError($"Failed at Get Countries error: {ex.Message} inner exception:{ex.InnerException}");
+                return new BadRequestObjectResult($"Failed to retrieve countries List with filter ({filter}).");
             }
         }
 
-        private static async Task<List<CountryData>> GetCountriesList(string filter, string filterValue,ExecutionContext executionContext, ILogger log)
+        private static async Task<List<CountryData>> GetCountriesList(string filter, string filterValue, ExecutionContext executionContext, ILogger log)
         {
-            var countriesApi = new Countries.BusinessLogicLayer.CountriesApi();
-            string directoryPath = Path.Combine(executionContext.FunctionDirectory);
-            var t = await countriesApi.LookupAndList(filter,filterValue, directoryPath);
+            try
+            {
+                var countriesApi = new Countries.BusinessLogicLayer.CountriesApi();
+                string directoryPath = Path.Combine(executionContext.FunctionDirectory);
+                log.LogInformation($"2: Get Directory Path of the Json file {directoryPath}");
+                return await countriesApi.LookupAndList(filter, filterValue, directoryPath, log);
+            }
+            catch (Exception ex)
+            {
+                log.LogError($"Failed at Get CountriesList error: {ex.Message} inner exception:{ex.InnerException}");
+                return null;
+            }
 
-            return t;
         }
     }
 }

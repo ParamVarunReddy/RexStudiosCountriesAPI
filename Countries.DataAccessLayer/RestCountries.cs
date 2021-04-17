@@ -74,15 +74,21 @@ namespace Countries.DataAccessLayer
         public string Flag { get; set; }
 
         [JsonPropertyName("regionalBlocs")]
-        public List<RegionalBloc> RegionalBlocs { get; set; }
+        public List<RegionalBlocs> RegionalBlocs { get; set; }
 
         [JsonPropertyName("cioc")]
         public string Cioc { get; set; }
     }
-    public partial class Currency
+    public class Currency
     {
         [JsonPropertyName("code")]
         public string Code { get; set; }
+
+        [JsonPropertyName("name")]
+        public string Name { get; set; }
+
+        [JsonPropertyName("symbol")]
+        public string Symbol { get; set; }
     }
 
     public class Language
@@ -131,5 +137,20 @@ namespace Countries.DataAccessLayer
 
         [JsonPropertyName("fa")]
         public string Fa { get; set; }
+    }
+
+    public class RegionalBlocs
+    {
+        [JsonPropertyName("acronym")]
+        public string Acronym { get; set; }
+
+        [JsonPropertyName("name")]
+        public string Name { get; set; }
+
+        [JsonPropertyName("otherAcronyms")]
+        public List<string> OtherAcronyms { get; set; }
+
+        [JsonPropertyName("otherNames")]
+        public List<string> OtherNames { get; set; }
     }
 }

@@ -7,8 +7,65 @@ namespace Countries.DataAccessLayer
 {
     public class GraphCountries
     {
-        [JsonPropertyName("data")]
-        public Data Data { get; set; }
+        [JsonPropertyName("name")]
+        public string Name { get; set; }
+
+        [JsonPropertyName("nativeName")]
+        public string NativeName { get; set; }
+
+        [JsonPropertyName("alpha2Code")]
+        public string Alpha2Code { get; set; }
+
+        [JsonPropertyName("alpha3Code")]
+        public string Alpha3Code { get; set; }
+
+        [JsonPropertyName("area")]
+        public double? Area { get; set; }
+
+        [JsonPropertyName("population")]
+        public int Population { get; set; }
+
+        [JsonPropertyName("populationDensity")]
+        public double? PopulationDensity { get; set; }
+
+        [JsonPropertyName("capital")]
+        public string Capital { get; set; }
+
+        [JsonPropertyName("demonym")]
+        public string Demonym { get; set; }
+
+        [JsonPropertyName("gini")]
+        public double? Gini { get; set; }
+
+        [JsonPropertyName("location")]
+        public Location Location { get; set; }
+
+        [JsonPropertyName("numericCode")]
+        public string NumericCode { get; set; }
+
+        [JsonPropertyName("subregion")]
+        public Subregion Subregion { get; set; }
+
+        [JsonPropertyName("officialLanguages")]
+        public List<OfficialLanguage> OfficialLanguages { get; set; }
+
+        [JsonPropertyName("currencies")]
+        public List<Currencies> Currencies { get; set; }
+
+        [JsonPropertyName("regionalBlocs")]
+        public List<RegionalBloc> RegionalBlocs { get; set; }
+
+        [JsonPropertyName("flag")]
+        public Flag Flag { get; set; }
+
+        [JsonPropertyName("topLevelDomains")]
+        public List<TopLevelDomain> TopLevelDomains { get; set; }
+
+        [JsonPropertyName("callingCodes")]
+        public List<CallingCode> CallingCodes { get; set; }
+
+        [JsonPropertyName("alternativeSpellings")]
+        public List<AlternativeSpelling> AlternativeSpellings { get; set; }
     }
     public class Location
     {
@@ -31,7 +88,7 @@ namespace Countries.DataAccessLayer
         public string Name { get; set; }
 
         [JsonPropertyName("region")]
-        public Region Region { get; set; }
+        public Region Regions { get; set; }
     }
 
     public class OfficialLanguage
@@ -49,7 +106,7 @@ namespace Countries.DataAccessLayer
         public string NativeName { get; set; }
     }
 
-    public partial class Currency
+    public class Currencies
     {
         [JsonPropertyName("name")]
         public string Name { get; set; }
@@ -115,72 +172,6 @@ namespace Countries.DataAccessLayer
         public string Name { get; set; }
     }
 
-    public class CountryModal
-    {
-        [JsonPropertyName("name")]
-        public string Name { get; set; }
 
-        [JsonPropertyName("nativeName")]
-        public string NativeName { get; set; }
 
-        [JsonPropertyName("alpha2Code")]
-        public string Alpha2Code { get; set; }
-
-        [JsonPropertyName("alpha3Code")]
-        public string Alpha3Code { get; set; }
-
-        [JsonPropertyName("area")]
-        public double? Area { get; set; }
-
-        [JsonPropertyName("population")]
-        public int Population { get; set; }
-
-        [JsonPropertyName("populationDensity")]
-        public double? PopulationDensity { get; set; }
-
-        [JsonPropertyName("capital")]
-        public string Capital { get; set; }
-
-        [JsonPropertyName("demonym")]
-        public string Demonym { get; set; }
-
-        [JsonPropertyName("gini")]
-        public double? Gini { get; set; }
-
-        [JsonPropertyName("location")]
-        public Location Location { get; set; }
-
-        [JsonPropertyName("numericCode")]
-        public string NumericCode { get; set; }
-
-        [JsonPropertyName("subregion")]
-        public Subregion Subregion { get; set; }
-
-        [JsonPropertyName("officialLanguages")]
-        public List<OfficialLanguage> OfficialLanguages { get; set; }
-
-        [JsonPropertyName("currencies")]
-        public List<Currency> Currencies { get; set; }
-
-        [JsonPropertyName("regionalBlocs")]
-        public List<RegionalBloc> RegionalBlocs { get; set; }
-
-        [JsonPropertyName("flag")]
-        public Flag Flag { get; set; }
-
-        [JsonPropertyName("topLevelDomains")]
-        public List<TopLevelDomain> TopLevelDomains { get; set; }
-
-        [JsonPropertyName("callingCodes")]
-        public List<CallingCode> CallingCodes { get; set; }
-
-        [JsonPropertyName("alternativeSpellings")]
-        public List<AlternativeSpelling> AlternativeSpellings { get; set; }
-    }
-
-    public class Data
-    {
-        [JsonPropertyName("Country")]
-        public List<CountryModal> Country { get; set; }
-    }
 }
