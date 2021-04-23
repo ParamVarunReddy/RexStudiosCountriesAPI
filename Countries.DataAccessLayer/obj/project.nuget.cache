@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "qkcZvNcKxqOxWfppnnqSwoWjw2JRLiHBOs7jO35ZYCq5Nl8PjPUGM/kd1Nrj0F+ZFZ5vIuAPRGVxI8twOkHisg==",
+  "dgSpecHash": "7ITuiSeefjZVrYe5wD3kUPSUS/+cx2oaFjHsRB88wiyivsigNRzL22n5nUf/mW1I1Ds9qjWDLh2jrXVL7i+NRg==",
   "success": true,
   "projectFilePath": "D:\\RexStudiosCountriesAPI\\Countries.DataAccessLayer\\Countries.DataAccessLayer.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Varun\\.nuget\\packages\\bootstrap\\4.6.0\\bootstrap.4.6.0.nupkg.sha512",
+    "C:\\Users\\Varun\\.nuget\\packages\\jquery\\3.6.0\\jquery.3.6.0.nupkg.sha512",
+    "C:\\Users\\Varun\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\3.1.14\\microsoft.extensions.logging.abstractions.3.1.14.nupkg.sha512",
+    "C:\\Users\\Varun\\.nuget\\packages\\popper.js\\1.16.1\\popper.js.1.16.1.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -1,0 +1,2 @@
+D:\RexStudiosCountriesAPI\webapplication\obj\Debug\JavascriptApplication.vbprojAssemblyReference.cache
+D:\RexStudiosCountriesAPI\webapplication\obj\Debug\JavascriptApplication.vbproj.GenerateResource.cache
