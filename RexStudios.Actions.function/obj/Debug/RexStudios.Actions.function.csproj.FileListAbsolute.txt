@@ -1,0 +1,6 @@
+D:\RexStudiosCountriesAPI\RexStudios.Actions.function\bin\Debug\RexStudios.Actions.function.dll
+D:\RexStudiosCountriesAPI\RexStudios.Actions.function\bin\Debug\RexStudios.Actions.function.pdb
+D:\RexStudiosCountriesAPI\RexStudios.Actions.function\obj\Debug\RexStudios.Actions.function.csprojAssemblyReference.cache
+D:\RexStudiosCountriesAPI\RexStudios.Actions.function\obj\Debug\RexStudios.Actions.function.csproj.CoreCompileInputs.cache
+D:\RexStudiosCountriesAPI\RexStudios.Actions.function\obj\Debug\RexStudios.Actions.function.dll
+D:\RexStudiosCountriesAPI\RexStudios.Actions.function\obj\Debug\RexStudios.Actions.function.pdb

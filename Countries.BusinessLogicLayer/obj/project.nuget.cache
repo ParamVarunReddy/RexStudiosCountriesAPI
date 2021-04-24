@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "K1uWBVDfnWLktLKOt5tvcvNUwNLbog3y7sRnmN32u1+TEqm1rAEUcO4MXg6GTIcR/x3po9b40FUKaid6zJY99Q==",
+  "dgSpecHash": "X4MldAQy3Nh6MZ6Kw8BZ3YF3UcXztGjc5JoyDRS3sCFddrE8pJ/ZFp6dxxaR2Lui1PctCmW+W/OTgYHqjJyN/Q==",
   "success": true,
   "projectFilePath": "D:\\RexStudiosCountriesAPI\\Countries.BusinessLogicLayer\\Countries.BusinessLogicLayer.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Varun\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\3.1.14\\microsoft.extensions.logging.abstractions.3.1.14.nupkg.sha512"
+    "C:\\Users\\Varun\\.nuget\\packages\\bootstrap\\4.6.0\\bootstrap.4.6.0.nupkg.sha512",
+    "C:\\Users\\Varun\\.nuget\\packages\\jquery\\3.6.0\\jquery.3.6.0.nupkg.sha512",
+    "C:\\Users\\Varun\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\3.1.14\\microsoft.extensions.logging.abstractions.3.1.14.nupkg.sha512",
+    "C:\\Users\\Varun\\.nuget\\packages\\popper.js\\1.16.1\\popper.js.1.16.1.nupkg.sha512"
   ],
   "logs": []
 }
