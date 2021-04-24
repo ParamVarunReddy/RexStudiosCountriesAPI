@@ -1,11 +1,57 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {}
+    ".NETCoreApp,Version=v3.1": {
+      "Microsoft.Extensions.Logging.Abstractions/3.1.14": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {}
+        }
+      },
+      "Countries.DataAccessLayer/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "3.1.14"
+        },
+        "compile": {
+          "bin/placeholder/Countries.DataAccessLayer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Countries.DataAccessLayer.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Microsoft.Extensions.Logging.Abstractions/3.1.14": {
+      "sha512": "pEKsBsD+nl4MHs8qnv/QiL3uwQMRZCVmeOmdt5NJwKO5ndNc/H9YD/9nmVvr3vlAtRcAj56HZMhNQ/NHbQTOSw==",
+      "type": "package",
+      "path": "microsoft.extensions.logging.abstractions/3.1.14",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.xml",
+        "microsoft.extensions.logging.abstractions.3.1.14.nupkg.sha512",
+        "microsoft.extensions.logging.abstractions.nuspec"
+      ]
+    },
+    "Countries.DataAccessLayer/1.0.0": {
+      "type": "project",
+      "path": "../Countries.DataAccessLayer/Countries.DataAccessLayer.csproj",
+      "msbuildProject": "../Countries.DataAccessLayer/Countries.DataAccessLayer.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": []
+    ".NETCoreApp,Version=v3.1": [
+      "Countries.DataAccessLayer >= 1.0.0",
+      "Microsoft.Extensions.Logging.Abstractions >= 3.1.14"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Varun\\.nuget\\packages\\": {},
@@ -43,7 +89,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\RexStudiosCountriesAPI\\Countries.DataAccessLayer\\Countries.DataAccessLayer.csproj": {
+              "projectPath": "D:\\RexStudiosCountriesAPI\\Countries.DataAccessLayer\\Countries.DataAccessLayer.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -55,6 +105,12 @@
     "frameworks": {
       "netcoreapp3.1": {
         "targetAlias": "netcoreapp3.1",
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": {
+            "target": "Package",
+            "version": "[3.1.14, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",
@@ -70,7 +126,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }
