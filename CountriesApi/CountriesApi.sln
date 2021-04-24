@@ -9,6 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Countries.BusinessLogicLaye
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Countries.DataAccessLayer", "..\Countries.DataAccessLayer\Countries.DataAccessLayer.csproj", "{0E8DA7E6-D879-42CE-87B0-A7FE322A666F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RexStudios.Actions.function", "..\RexStudios.Actions.function\RexStudios.Actions.function.csproj", "{37869F66-C4BC-49BC-95AE-281BA357EDD6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RexStudios.DynamicsCRM.Actions", "..\RexStudios.DynamicsCRM.Actions\RexStudios.DynamicsCRM.Actions.csproj", "{DC9D804F-B468-4608-A3E2-63CA7B6268DF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{0E8DA7E6-D879-42CE-87B0-A7FE322A666F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E8DA7E6-D879-42CE-87B0-A7FE322A666F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E8DA7E6-D879-42CE-87B0-A7FE322A666F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37869F66-C4BC-49BC-95AE-281BA357EDD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37869F66-C4BC-49BC-95AE-281BA357EDD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37869F66-C4BC-49BC-95AE-281BA357EDD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37869F66-C4BC-49BC-95AE-281BA357EDD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC9D804F-B468-4608-A3E2-63CA7B6268DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC9D804F-B468-4608-A3E2-63CA7B6268DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC9D804F-B468-4608-A3E2-63CA7B6268DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC9D804F-B468-4608-A3E2-63CA7B6268DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
