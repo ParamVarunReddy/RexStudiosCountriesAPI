@@ -13,6 +13,11 @@ namespace RexStudios.DynamicsCRM.Actions
 {
     public static class InboundIntegration
     {
+        private static string SearchString { get; set; }
+        private static string RequestMessage { get; set; }
+        private static string RequestType { get; set; }
+        private static string RequestFormat { get; set; }
+
         [FunctionName("InboundIntegration")]
         public static async Task<HttpResponseMessage> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequestMessage req,
@@ -23,7 +28,15 @@ namespace RexStudios.DynamicsCRM.Actions
             log.LogInformation($"Received Inbound Message {requestBody}");
 
             RemoteExecutionContext remoteExecutionContext = DeserializeJsonString<RemoteExecutionContext>(requestBody);
+            SearchString =  remoteExecutionContext.InputParameters["QueryString"].ToString();
+            RequestMessage = remoteExecutionContext.InputParameters["RequestMessage"].ToString();
+            RequestType = remoteExecutionContext.InputParameters["RequestType"].ToString();
+            RequestFormat = remoteExecutionContext.InputParameters["RequestFormat"].ToString();
 
+            log.LogInformation($"Received searchstring {SearchString}");
+            log.LogInformation($"Received RequestMessage {RequestMessage}");
+            log.LogInformation($"Received RequestType {RequestType}");
+            log.LogInformation($"Received RequestFormat {RequestFormat}");
             string responseMessage = string.IsNullOrEmpty(remoteExecutionContext.MessageName)
                 ? "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response."
                 : $"Hello, {remoteExecutionContext.MessageName}. This HTTP triggered function executed successfully.";
