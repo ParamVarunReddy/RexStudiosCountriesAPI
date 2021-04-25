@@ -18,7 +18,7 @@ namespace CountriesApi
     {
         [FunctionName("RetreiveRequest")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "countries/list")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "countries/list")] HttpRequest req,
             ILogger log, ExecutionContext executionContext)
         {
             log.LogInformation("CountryRetrieveRequest processed a new request:");
