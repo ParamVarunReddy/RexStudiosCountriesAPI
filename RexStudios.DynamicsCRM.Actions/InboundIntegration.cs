@@ -56,13 +56,13 @@ namespace RexStudios.DynamicsCRM.Actions
             };
 
             _countryService = ServiceFactory<ICountryService>.Instance(options, _httpService, log);
-            
-             string countryJson = JsonSerializer.Serialize(_countryService.GetCountryByName(SearchString));
 
+            string countryJson = JsonSerializer.Serialize(_countryService.GetCountryByName(SearchString));
+            log.LogInformation($"Received countryJson {countryJson}");
 
-            string responseMessage = string.IsNullOrEmpty(remoteExecutionContext.MessageName)
+            string responseMessage = string.IsNullOrEmpty(countryJson)
                 ? "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response."
-                : $"Hello, {remoteExecutionContext.MessageName}. This HTTP triggered function executed successfully.";
+                : $"Hello, {countryJson}. This HTTP triggered function executed successfully.";
 
             return responseMessage != null
                     ? new HttpResponseMessage(System.Net.HttpStatusCode.OK)
