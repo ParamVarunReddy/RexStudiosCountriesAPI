@@ -2,12 +2,14 @@ using System;
 using System.IO;
 using System.Net.Http;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Xrm.Sdk;
-using Newtonsoft.Json;
+using RexStudios.DynamicsCRM.Actions.Common;
+using RexStudios.DynamicsCRM.Actions.Http;
 
 namespace RexStudios.DynamicsCRM.Actions
 {
@@ -18,17 +20,27 @@ namespace RexStudios.DynamicsCRM.Actions
         private static string RequestType { get; set; }
         private static string RequestFormat { get; set; }
 
+        /// <summary>
+        /// Defines _httpService
+        /// </summary>
+        public static IHttpService _httpService;
+
+        /// <summary>
+        /// Defines the _crmService.
+        /// </summary>
+        private static ICountryService _countryService;
+
         [FunctionName("InboundIntegration")]
         public static async Task<HttpResponseMessage> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequestMessage req,
-            ILogger log) 
+            ILogger log)
         {
             log.LogInformation("Dynamics CRM Action inbound integration Processed a request.");
             string requestBody = await req.Content.ReadAsStringAsync();
             log.LogInformation($"Received Inbound Message {requestBody}");
 
             RemoteExecutionContext remoteExecutionContext = DeserializeJsonString<RemoteExecutionContext>(requestBody);
-            SearchString =  remoteExecutionContext.InputParameters["QueryString"].ToString();
+            SearchString = remoteExecutionContext.InputParameters["QueryString"].ToString();
             RequestMessage = remoteExecutionContext.InputParameters["RequestMessage"].ToString();
             RequestType = remoteExecutionContext.InputParameters["RequestType"].ToString();
             RequestFormat = remoteExecutionContext.InputParameters["RequestFormat"].ToString();
@@ -37,6 +49,17 @@ namespace RexStudios.DynamicsCRM.Actions
             log.LogInformation($"Received RequestMessage {RequestMessage}");
             log.LogInformation($"Received RequestType {RequestType}");
             log.LogInformation($"Received RequestFormat {RequestFormat}");
+            ApiOptions options = new ApiOptions
+            {
+                APIMSubscriptionKey = Countries.CLIENT_SECRET,
+                ApiUrl = Countries.DEFAULT_URL
+            };
+
+            _countryService = ServiceFactory<ICountryService>.Instance(options, _httpService, log);
+            
+             string countryJson = JsonSerializer.Serialize(_countryService.GetCountryByName(SearchString));
+
+
             string responseMessage = string.IsNullOrEmpty(remoteExecutionContext.MessageName)
                 ? "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response."
                 : $"Hello, {remoteExecutionContext.MessageName}. This HTTP triggered function executed successfully.";
