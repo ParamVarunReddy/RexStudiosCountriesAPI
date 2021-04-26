@@ -13,7 +13,7 @@ namespace RexStudios.DynamicsCRM.Actions
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        Task<Countries> GetCountryByName(string name);
+        Task<string> GetCountryByName(string name);
 
     }
 }
