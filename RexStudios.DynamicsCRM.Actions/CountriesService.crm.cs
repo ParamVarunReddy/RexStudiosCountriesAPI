@@ -26,18 +26,18 @@ namespace RexStudios.DynamicsCRM.Actions
         /// </summary>
         /// <param name="contactId">.</param>
         /// <returns>.</returns>
-        public async Task<Modals.Countries> GetCountryByName(string query)
+        public async Task<string> GetCountryByName(string query)
         {
             try
             {
                 var url = _options.ApiUrl + "?" + query;
                 _logger.LogInformation($"1: Get Countries URL: {url}");
-                var response = await _httpService.GetObjectAsync<Modals.Countries>(url, Getheaders());
+                var response = await _httpService.GetStringAsync(url, Getheaders());
                 _logger.LogInformation($"2: Get Countries from Api Using Name: {url}");
 
                 if (response.IsSuccessful)
                 {
-                    return response?.Result;
+                    return response?.ResponseBody;
                 }
                 else
                 {

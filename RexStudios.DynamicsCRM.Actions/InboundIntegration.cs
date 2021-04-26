@@ -13,7 +13,7 @@ using RexStudios.DynamicsCRM.Actions.Http;
 
 namespace RexStudios.DynamicsCRM.Actions
 {
-    public static class InboundIntegration
+    public class InboundIntegration
     {
         private static string SearchString { get; set; }
         private static string RequestMessage { get; set; }
@@ -33,7 +33,7 @@ namespace RexStudios.DynamicsCRM.Actions
         [FunctionName("InboundIntegration")]
         public static async Task<HttpResponseMessage> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequestMessage req,
-            ILogger log)
+            ILogger<HttpService> log)
         {
             log.LogInformation("Dynamics CRM Action inbound integration Processed a request.");
             string requestBody = await req.Content.ReadAsStringAsync();
@@ -55,6 +55,7 @@ namespace RexStudios.DynamicsCRM.Actions
                 ApiUrl = Countries.DEFAULT_URL
             };
 
+            _httpService = new HttpService(new HttpClient(), log);
             _countryService = ServiceFactory<ICountryService>.Instance(options, _httpService, log);
 
             string countryJson = JsonSerializer.Serialize(_countryService.GetCountryByName(SearchString));
